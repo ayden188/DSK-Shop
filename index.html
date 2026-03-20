@@ -40,7 +40,7 @@
     <style>
         :root {
             --text-main: #080808;
-            --bg-body: #f8fafc;
+            --bg-body: #f8fafc   ;
             --bg-card: #ffffff;
             --dsk-white: #ffffff;
         }
@@ -61,83 +61,68 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class=" bg-dsk-card text-dsk-text font-sans">
-
-    <header class="w-full bg-dsk-white-var border-b border-gray-100 sticky top-0 z-50">
-        <nav class="w-[80%] max-w-[1400px] mx-auto flex justify-between items-center p-4 md:px-8">
-
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-dsk-text rounded-lg flex items-center justify-center">
-                    <i data-lucide="zap" class="text-dsk-card w-5 h-5"></i>
-                </div>
-                <span class="font-title font-extrabold text-xl tracking-tight">DSK SHOP</span>
+<body class=" bg-dsk-bg text-dsk-text font-sans">
+    <div class="main-content">     
+    <div id="toast" class="fixed top-20 right-6 z-[100] translate-x-[150%] transition-transform duration-500">
+        <div class="bg-black text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10 backdrop-blur-md">
+            <div class="bg-green-500 p-1 rounded-full text-black">
+                <i data-lucide="check" class="w-4 h-4"></i>
             </div>
-
-            <ul class="hidden md:flex gap-10 font-medium text-gray-500">
-                <li><a href="#" class="hover:text-dsk-text transition-colors">Brands</a></li>
-                <li><a href="#" class="text-dsk-text font-semibold border-b-2 border-dsk-text pb-1">Shop</a></li>
-                <li><a href="#" class="hover:text-dsk-text transition-colors">Blog</a></li>
-            </ul>
-
-            <div class="flex items-center gap-3">
-                <button id="Turn-mode" class="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-sun-dim-icon lucide-sun-dim">
-                        <circle cx="12" cy="12" r="4" />
-                        <path d="M12 4h.01" />
-                        <path d="M20 12h.01" />
-                        <path d="M12 20h.01" />
-                        <path d="M4 12h.01" />
-                        <path d="M17.657 6.343h.01" />
-                        <path d="M17.657 17.657h.01" />
-                        <path d="M6.343 17.657h.01" />
-                        <path d="M6.343 6.343h.01" />
-                    </svg>
-                </button>
-
-
-                <button class="relative p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-600">
-                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                    <span
-                        class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-dsk-accent text-[10px] font-bold text-dsk-card">3</span>
-                </button>
-                <div class="h-9 w-9 rounded-full overflow-hidden border-2 border-gray-100 ml-2 shadow-sm">
-                    <img src="https://ui-avatars.com/api/?name=DSK+Shop&background=020024&color=fff" alt="Profil"
-                        class="h-full w-full object-cover">
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="max-w-[1400px] mx-auto px-4 md:px-8">
-
-        <section
-            class="relative h-[300px] md:h-[450px] w-full flex items-center justify-center overflow-hidden rounded-3xl mt-6">
-            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=2000"
-                class="absolute inset-0 w-full h-full object-cover brightness-[0.7]" alt="Background Shop">
-
-            <h1
-                class="relative font-title text-[80px] md:text-[300px] font-extrabold text-white opacity-90 tracking-tighter leading-none select-none">
-                Shop
-            </h1>
-        </section>
-
-    </main>
-
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-12 gap-6 p-10 bg-dsk-bg ">
-        <div>
-            <h2 class="font-title text-2xl md:text-3xl font-bold">Give All You Need</h2>
-        </div>
-        <div class="relative w-full md:w-96">
-            <input type="text" placeholder="Search on DSK Shop..."
-                class="w-full bg-dsk-card border border-gray-200 rounded-full py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
-            <button
-                class="absolute right-2 top-1/2 -translate-y-1/2 bg-dsk-text text-dsk-card px-5 py-1.5 rounded-full text-sm font-medium">Search</button>
+            <p class="text-xs font-bold uppercase tracking-widest">Added to cart</p>
         </div>
     </div>
 
-    <section class="grid grid-cols-1 md:grid-cols-12 gap-8 bg-white p-10">
+  <header class="relative w-full h-[600px] overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=2000"
+         class="absolute inset-0 w-full h-full object-cover brightness-[0.8]" alt="Background Shop">
+
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <h1 class="font-title text-[150px] md:text-[450px] font-black text-white opacity-90 tracking-tighter select-none leading-none">
+            Shop
+        </h1>
+    </div>
+
+<nav class="fixed top-0 left-1/2 -translate-x-1/2 z-50 w-[100%] md:w-[90%] max-w-[1400px] flex justify-between items-center p-4 bg-white/90 backdrop-blur-md md:rounded-b-2xl shadow-sm">        
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+                <i data-lucide="zap" class="text-white w-5 h-5"></i>
+            </div>
+            <span class="font-bold text-xl tracking-tight">DSK SHOP</span>
+        </div>
+
+        <ul class="hidden md:flex gap-10 font-bold text-gray-500">
+            <li><a href="shop.html" class="hover:text-black">Shop</a></li>
+            <li><a href="#" class="text-black border-b-2 border-black pb-1">Home</a></li>
+            <li><a href="#" class="hover:text-black">Blog</a></li>
+        </ul>
+
+        <div class="flex items-center gap-3">
+            <button class="p-2 hover:bg-gray-100 rounded-full"><i data-lucide="search" class="w-5 h-5"></i></button>
+            <button onclick="ouvrirPanier(); " class="relative p-2 hover:bg-gray-100 rounded-full">
+                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                <span class="absolute top-1 right-1 h-4 w-4 bg-red-500 text-white text-[10px] flex items-center justify-center rounded-full" id="span">0</span>
+            </button>
+            <img src="https://ui-avatars.com/api/?name=DSK" class="w-9 h-9 rounded-full border">
+        </div>
+
+    </nav>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[100%]  md:w-[90%] max-w-[1400px] flex flex-col md:flex-row justify-between items-center gap-6 p-4 bg-dsk-bg md:rounded-t-2xl shadow-xl z-20">
+    <div>
+        <h2 class="font-title text-xl md:text-2xl font-black text-black ">Give All You Need</h2>
+    </div>
+    <div class="relative w-full md:w-96">
+<input type="text" placeholder="Search on DSK Shop..."
+class="w-full bg-dsk-card border border-gray-200 rounded-full py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
+<button
+class="absolute right-2 top-1/2 -translate-y-1/2 bg-dsk-text text-dsk-card px-5 py-1.5 rounded-full text-sm font-medium">Search</button>
+    </div>
+</div>
+</header>
+
+    
+
+
+    <section class="grid grid-cols-1 md:grid-cols-12 gap-8 bg-dsk-bg p-6 md:p-10">
 
         <!-- sidebar-->
         <aside class="md:col-span-3 space-y-8 w-64 flex-shrink-0">
@@ -152,8 +137,8 @@
                     <span title="lenght of products"
                         class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
                         id="number">32</span>
-                </div>
-
+                </div> 
+                
                 <div class="ml-6 border-l border-gray-200 space-y-4 py-2">
                     <div onclick="filtrerParCategorie('Home')" class="flex items-center gap-3 pl-4 relative">
                         <div class="absolute left-0 w-3 h-[1px] bg-gray-200"></div>
@@ -215,7 +200,7 @@
     <section class=" flex gap-8 p-10 w-full">
         <div class="flex justify-between align-center w-full ">
             <div>
-                <h1 class="text-2xl md:text-5xl text-[#080808] mb-6 tracking-tighter font-black">Explore our
+                <h1 class="text-base md:text-4xl text-[#080808] mb-6 tracking-tighter font-black">Explore our
                     recomendations</h1>
             </div>
             <div class=" flex  gap-6">
@@ -251,7 +236,7 @@
     <div class=" md:p-10">
         <section class="mt-12 p-10 w-full bg-[linear-gradient(135deg,#151515_0%,#080808_100%)] text-white md:rounded-3xl flex flex-col md:flex-row justify-between items-stretch">
             <div class="flex flex-col gap-6 md:gap-12 ">
-                <h1 class="text-3xl md:text-6xl font-black">Ready to Get <br> Our New stuff?</h1>
+                <h1 class="text-2xl md:text-6xl font-black">Ready to Get <br> Our New stuff?</h1>
                 <div class="relative md:w-86 mb-4 md:mb-0 text-black">
                     <input type="text" placeholder="Your Email"
                         class="w-full bg-dsk-card border border-gray-200 rounded-full py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
@@ -259,11 +244,13 @@
                         class="absolute right-2 top-1/2 -translate-y-1/2 bg-dsk-text text-dsk-card px-5 py-1.5 rounded-full text-sm font-medium">Send</button>
                 </div>
             </div>
-<div class=" flex flex-col justify-end  "> 
-<h1 class="font-black">Peak performance, Zero compromise, Built to last</h1>
-<p class="text-gray-300 mt-4"> Push the boundaries of what's possible. Engineered for those who demand <br> peak performance and zero compromise.  Fast, sleek, and built to last</p>
+            <div class=" flex flex-col justify-end  ">
+                <h1 class="font-black">Peak performance, Zero compromise, Built to last</h1>
+                <p class="text-gray-300 mt-4 text-sm"> Push the boundaries of what's possible. Engineered for those who demand
+                    <br> peak performance and zero compromise. Fast, sleek, and built to last
+                </p>
 
-</div>
+            </div>
 
 
 
@@ -271,20 +258,86 @@
 
         </section>
     </div>
+<footer class="p-10 ">
+    <section class="flex flex-col md:flex-row justify-between mt-6 md:items-start gap-8">
+        <div class="flex gap-16">
+            <div>
+                <h1 class="font-black mb-4 md:text-2xl text-black">About</h1>
+                <ul class="flex flex-col gap-2 text-gray-500 text-sm font-bold">
+                    <li class="hover:text-black cursor-pointer transition-colors duration-300">Blog</li>
+                    <li class="hover:text-black cursor-pointer transition-colors duration-300">Meet The Team</li>
+                    <li class="hover:text-black cursor-pointer transition-colors duration-300">Contact Us</li>
+                </ul>
+            </div>
+            <div>
+                <h1 class="font-black mb-4 md:text-2xl text-black">Support</h1>
+                <ul class="flex flex-col gap-2 text-gray-500 text-sm font-bold">
+                    <li class="hover:text-black cursor-pointer transition-colors duration-300">Shipping</li>
+                    <li class="hover:text-black cursor-pointer transition-colors duration-300">Return</li>
+                    <li class="hover:text-black cursor-pointer transition-colors duration-300">FAQ</li>
+                </ul>
+            </div>
+        </div>
 
+        <div class="flex flex-col gap-6 items-end  mt-auto">
+            <h1 class="font-black text-gray-500 md:text-right">Social Media</h1>
+            <div class="flex gap-3">
+                <a href="#" class="p-2 bg-black text-white border rounded-full hover:bg-pink-600 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="#" class="p-2 bg-black text-white border rounded-full hover:bg-blue-700 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+                <a href="#" class="p-2 bg-black text-white border rounded-full hover:bg-gray-800 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                    </svg>
+                </a>
+                <a href="#" class="p-2 bg-black text-white border rounded-full hover:bg-green-500 transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <!-- footer de eli pour prince et princio -->
-     <footer>
-<section class="">
-    
-</section>
+</footer>
 
-
-     </footer>
+    <div class="flex justify-between align-center mt-4 p-6 border-t border-gray-200"> 
+<p class="text-gray-400 text-xs">© 2026 DSK Shop. All rights reserved.</p>
+<div class="flex flex-row gap-6">
+    <a href="legal.html" class="font-black text-gray-600 text-xs hover:text-black"><p>Term Of Service</p></a>
+    <a href="legal.html" class="font-black text-gray-600 text-xs hover:text-black"> <p>Privacy Policy</p> </a>
+</div>
+</div>
     <script>
-        lucide.createIcons();
+     lucide.createIcons();
     </script>
-    <script src="script.js"></script>
+</div>
+    <div id="side-cart" class="fixed top-0 right-0 h-full w-[350px] bg-white shadow-2xl z-[100] translate-x-full transition-transform duration-500 ease-in-out p-6">
+        <div class="flex justify-between items-center border-b pb-4">
+            <h2 class="text-xl font-black">Mon Panier</h2>
+            <button onclick="fermerPanier()" class="p-2 hover:bg-gray-100 rounded-full">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+    
+        <div id="cart-content" class="mt-8 space-y-4 flex flex-col items-center justify-center text-gray-400">
+            <h3 class="flex justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart">
+                    <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+                </svg>
+            </h3>
+            <p class="text-center font-black">Votre panier est vide.</p>
+        </div>
+    </div>
+<script type="module" src="main.js"></script>
 </body>
 
 </html>

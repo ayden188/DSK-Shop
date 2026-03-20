@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Documentation | DSK Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-[#f5f5f7] text-[#1d1d1f] antialiased">
+
+    <nav class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-5xl mx-auto px-6 h-12 flex items-center justify-between">
+            <a href="index.html" class="font-black text-sm tracking-tighter hover:opacity-70 transition-opacity">DSK SHOP</a>
+            <div class="flex gap-6 text-[11px] font-medium text-gray-500">
+                <a href="#terms" class="hover:text-black transition-colors">Terms</a>
+                <a href="#privacy" class="hover:text-black transition-colors">Privacy</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 py-20">
+        
+        <header class="mb-16">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Legal <br>Information.</h1>
+            <p class="text-gray-500 text-sm">Last updated: March 11, 2026</p>
+        </header>
+
+        <section id="terms" class="mb-20 scroll-mt-20">
+            <h2 class="text-xl font-bold mb-8 pb-2 border-b border-gray-200">Terms of Service</h2>
+            
+            <div class="text-[11px] leading-6 text-gray-600 space-y-6 text-justify">
+                <div>
+                    <h3 class="font-bold text-black uppercase mb-2">1. Scope of Service</h3>
+                    <p>DSK Shop provides an online interface connecting independent sellers with potential buyers. We act strictly as a facilitator. By accessing our platform, you acknowledge that DSK Shop does not take possession of the goods at any point during the transaction. Our service ends once the delivery notification is successfully transmitted to the seller.</p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-black uppercase mb-2">2. Offline Transaction Model</h3>
+                    <p>Unlike traditional e-commerce platforms, DSK Shop does not process digital payments. All transactions are completed via <strong>Cash on Delivery (COD)</strong>. This means the buyer is solely responsible for verifying the product's condition before handing over the funds to the delivery agent. Once the payment is made physically, the transaction is considered final.</p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-black uppercase mb-2">3. User Obligations</h3>
+                    <p>Users must provide accurate information, including a valid phone number and physical address. Placing a "fake" order with the intent to disrupt service or harass sellers is strictly prohibited and may lead to a permanent ban of your device ID from our platform. You agree to be present at the delivery location at the time agreed upon with the courier.</p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-black uppercase mb-2">4. Limitation of Liability</h3>
+                    <p>To the maximum extent permitted by law, DSK Shop shall not be liable for any disputes, damages, or losses resulting from the physical meeting between the buyer and the seller/courier. Any issues regarding product quality, warranty, or authenticity must be resolved directly with the seller identified in the order confirmation.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-200 mb-20">
+
+        <section id="privacy" class="mb-20 scroll-mt-20">
+            <h2 class="text-xl font-bold mb-8 pb-2 border-b border-gray-200">Privacy Policy</h2>
+            
+            <div class="text-[11px] leading-6 text-gray-600 space-y-6 text-justify">
+                <div>
+                    <h3 class="font-bold text-black uppercase mb-2">1. Information We Collect</h3>
+                    <p>To process your order, we collect essential data: Full Name, Delivery Address, and Mobile Phone Number. We do not collect credit card numbers, bank details, or any other sensitive financial information since our platform does not handle online payments.</p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-black uppercase mb-2">2. How We Use Your Data</h3>
+                    <p>Your data is used exclusively to facilitate delivery. Your phone number is shared with the seller and the assigned courier so they can contact you regarding the delivery time. We do not sell your personal data to third-party marketing agencies.</p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-black uppercase mb-2">3. Cookies & Tracking</h3>
+                    <p>We use minimal cookies to remember your cart items and your language preferences. These are "functional cookies" and do not track your activity on other websites. By using DSK Shop, you consent to the storage of these small files on your device.</p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-black uppercase mb-2">4. Data Retention</h3>
+                    <p>Order history is stored for a period of 24 months to help resolve potential disputes and for the seller's internal accounting. You may request the deletion of your personal information at any time by contacting our support team, provided there are no pending deliveries associated with your account.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-32 pt-12 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-[10px] text-gray-400">Copyright © 2026 DSK Shop Inc. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="index.html" class="text-[10px] font-bold text-black hover:underline">Return to Shop</a>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Un petit script pour que le scroll soit fluide quand on clique sur les liens du haut
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
