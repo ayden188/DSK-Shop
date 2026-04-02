@@ -1,6 +1,6 @@
 // main.js   
 import { produits } from './data.js';
-import { showsPrds, ShowsPagination, showREcommande,darkMode ,move,changerPage, numberLenghOfProducts} from './ui.js';
+import { showsPrds, ShowsPagination, showREcommande,darkMode ,move,changerPage, numberLenghOfProducts,InitCarroussel} from './ui.js';
 import {  setCurrentPage, setProduitsFiltres ,panier,ajouterAuPanier, actualiserVisuelPanier,} from './carte.js';
 
 
@@ -10,10 +10,10 @@ window.supprimerDuPanier = (id) => {
     }
     actualiserVisuelPanier(); 
 };
+window.ajouterAuPanier=ajouterAuPanier
 
 window.handleAchat = (id) => {
-    ajouterAuPanier(id, produits);
-    console.log("Contenu du panier :", panier);
+    ajouterAuPanier(id);
     window.ouvrirPanier()
 };
 
@@ -53,6 +53,7 @@ function filtrerParCategorie(nomCategorie) {
 window.filtrerParCategorie = filtrerParCategorie;
 
 window.addEventListener('DOMContentLoaded', () => {
+    InitCarroussel()
     showsPrds(); 
     ShowsPagination(); 
     showREcommande();

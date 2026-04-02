@@ -40,7 +40,7 @@
     <style>
         :root {
             --text-main: #080808;
-            --bg-body: #f8fafc   ;
+            --bg-body: #f8fafc;
             --bg-card: #ffffff;
             --dsk-white: #ffffff;
         }
@@ -62,282 +62,330 @@
 </head>
 
 <body class=" bg-dsk-bg text-dsk-text font-sans">
-    <div class="main-content">     
-    <div id="toast" class="fixed top-20 right-6 z-[100] translate-x-[150%] transition-transform duration-500">
-        <div class="bg-black text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10 backdrop-blur-md">
-            <div class="bg-green-500 p-1 rounded-full text-black">
-                <i data-lucide="check" class="w-4 h-4"></i>
-            </div>
-            <p class="text-xs font-bold uppercase tracking-widest">Added to cart</p>
-        </div>
-    </div>
-
-  <header class="relative w-full h-[600px] overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=2000"
-         class="absolute inset-0 w-full h-full object-cover brightness-[0.8]" alt="Background Shop">
-
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <h1 class="font-title text-[150px] md:text-[450px] font-black text-white opacity-90 tracking-tighter select-none leading-none">
-            Shop
-        </h1>
-    </div>
-
-<nav class="fixed top-0 left-1/2 -translate-x-1/2 z-50 w-[100%] md:w-[90%] max-w-[1400px] flex justify-between items-center p-4 bg-white/90 backdrop-blur-md md:rounded-b-2xl shadow-sm">        
-        <div class="flex items-center gap-2">
-            <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                <i data-lucide="zap" class="text-white w-5 h-5"></i>
-            </div>
-            <span class="font-bold text-xl tracking-tight">DSK SHOP</span>
-        </div>
-
-        <ul class="hidden md:flex gap-10 font-bold text-gray-500">
-            <li><a href="shop.html" class="hover:text-black">Shop</a></li>
-            <li><a href="#" class="text-black border-b-2 border-black pb-1">Home</a></li>
-            <li><a href="#" class="hover:text-black">Blog</a></li>
-        </ul>
-
-        <div class="flex items-center gap-3">
-            <button class="p-2 hover:bg-gray-100 rounded-full"><i data-lucide="search" class="w-5 h-5"></i></button>
-            <button onclick="ouvrirPanier(); " class="relative p-2 hover:bg-gray-100 rounded-full">
-                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                <span class="absolute top-1 right-1 h-4 w-4 bg-red-500 text-white text-[10px] flex items-center justify-center rounded-full" id="span">0</span>
-            </button>
-            <img src="https://ui-avatars.com/api/?name=DSK" class="w-9 h-9 rounded-full border">
-        </div>
-
-    </nav>
-<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[100%]  md:w-[90%] max-w-[1400px] flex flex-col md:flex-row justify-between items-center gap-6 p-4 bg-dsk-bg md:rounded-t-2xl shadow-xl z-20">
-    <div>
-        <h2 class="font-title text-xl md:text-2xl font-black text-black ">Give All You Need</h2>
-    </div>
-    <div class="relative w-full md:w-96">
-<input type="text" placeholder="Search on DSK Shop..."
-class="w-full bg-dsk-card border border-gray-200 rounded-full py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
-<button
-class="absolute right-2 top-1/2 -translate-y-1/2 bg-dsk-text text-dsk-card px-5 py-1.5 rounded-full text-sm font-medium">Search</button>
-    </div>
-</div>
-</header>
-
-    
-
-
-    <section class="grid grid-cols-1 md:grid-cols-12 gap-8 bg-dsk-bg p-6 md:p-10">
-
-        <!-- sidebar-->
-        <aside class="md:col-span-3 space-y-8 w-64 flex-shrink-0">
-
-            <h2 class="text-xl font-bold mb-6">Category</h2>
-            <div class="space-y-2">
-                <div class="flex items-center justify-between bg-gray-100 p-3 rounded-xl cursor-pointer">
-                    <div onclick="filtrerParCategorie('All')" class="flex items-center gap-3">
-                        <i data-lucide="shopping-bag" class="w-5 h-5 text-gray-600"></i>
-                        <span class="font-semibold text-sm">All Product</span>
-                    </div>
-                    <span title="lenght of products"
-                        class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
-                        id="number">32</span>
-                </div> 
-                
-                <div class="ml-6 border-l border-gray-200 space-y-4 py-2">
-                    <div onclick="filtrerParCategorie('Home')" class="flex items-center gap-3 pl-4 relative">
-                        <div class="absolute left-0 w-3 h-[1px] bg-gray-200"></div>
-                        <i data-lucide="home" class="w-4 h-4 text-gray-400"></i>
-                        <span class="text-sm text-gray-500 hover:text-black cursor-pointer">For Home</span>
-                    </div>
-                    <div onclick="filtrerParCategorie('Music')" class="flex items-center gap-3 pl-4 relative">
-                        <div class="absolute left-0 w-3 h-[1px] bg-gray-200"></div>
-                        <i data-lucide="music" class="w-4 h-4 text-gray-400"></i>
-                        <span class="text-sm text-gray-500 hover:text-black cursor-pointer">For Music</span>
-                    </div>
-                    <div onclick="filtrerParCategorie('Phone')" class="flex items-center gap-3 pl-4 relative">
-                        <div class="absolute left-0 w-3 h-[1px] bg-gray-200"></div>
-                        <i data-lucide="smartphone" class="w-4 h-4 text-gray-400"></i>
-                        <span class="text-sm text-gray-500 hover:text-black cursor-pointer">For Phone</span>
-                    </div>
+    <div class="main-content">
+        <div id="toast" class="fixed top-20 right-6 z-[100] translate-x-[150%] transition-transform duration-500">
+            <div
+                class="bg-black text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-white/10 backdrop-blur-md">
+                <div class="bg-green-500 p-1 rounded-full text-black">
+                    <i data-lucide="check" class="w-4 h-4"></i>
                 </div>
+                <p class="text-xs font-bold uppercase tracking-widest">Added to cart</p>
+            </div>
+        </div>
+
+        <header class="relative w-full h-[600px] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=2000"
+                class="absolute inset-0 w-full h-full object-cover brightness-[0.8]" alt="Background Shop">
+
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <h1
+                    class="font-title text-[150px] md:text-[450px] font-black text-white opacity-90 tracking-tighter select-none leading-none">
+                    Shop
+                </h1>
             </div>
 
-            <div class="mt-8 space-y-4 pt-6 border-t border-gray-100">
-                <div class="flex items-center justify-between group cursor-pointer">
-                    <div class="flex items-center gap-3 text-gray-500 group-hover:text-black transition-colors">
-                        <i data-lucide="search" class="w-5 h-5"></i>
-                        <span class="text-sm font-medium">New Arrival</span>
+            <nav
+                class="fixed top-0 left-1/2 -translate-x-1/2 z-50 w-[100%] md:w-[90%] max-w-[1400px] flex justify-between items-center p-4 bg-white/90 backdrop-blur-md md:rounded-b-2xl shadow-sm">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+                        <i data-lucide="zap" class="text-white w-5 h-5"></i>
+
                     </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-300"></i>
+                    <span class="font-bold text-xl tracking-tight">DSK SHOP</span>
                 </div>
 
-                <div class="flex items-center justify-between group cursor-pointer">
-                    <div class="flex items-center gap-3 text-gray-500 group-hover:text-black transition-colors">
-                        <i data-lucide="sparkles" class="w-5 h-5"></i>
-                        <span class="text-sm font-medium">Best Seller</span>
-                    </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 text-gray-300"></i>
+                <ul class="hidden md:flex gap-10 font-bold text-gray-500">
+                    <li><a href="shop.html" class="hover:text-black">Shop</a></li>
+                    <li><a href="index.html" class="text-black border-b-2 border-black pb-1">Home</a></li>
+                    <li><a href="#" class="hover:text-black">Blog</a></li>
+                </ul>
+
+                <div class="flex items-center gap-3">
+                    <button class="p-2 hover:bg-gray-100 rounded-full"><i data-lucide="search"
+                            class="w-5 h-5"></i></button>
+                    <button onclick="ouvrirPanier(); " class="relative p-2 hover:bg-gray-100 rounded-full">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span
+                            class="absolute top-1 right-1 h-4 w-4 bg-red-500 text-white text-[10px] flex items-center justify-center rounded-full"
+                            id="span">0</span>
+                    </button>
+                    <img src="https://ui-avatars.com/api/?name=DSK" class="w-9 h-9 rounded-full border">
                 </div>
 
-                <div class="flex items-center justify-between group cursor-pointer text-red-500">
-                    <div class="flex items-center gap-3">
-                        <i data-lucide="percent" class="w-5 h-5"></i>
-                        <span class="text-sm font-medium">On Discount</span>
-                    </div>
-                    <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
+            </nav>
+            <div
+                class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[100%]  md:w-[90%] max-w-[1400px] flex flex-col md:flex-row justify-between items-center gap-6 p-4 bg-dsk-bg md:rounded-t-2xl shadow-xl z-20">
+                <div>
+                    <h2 class="font-title text-xl md:text-2xl font-black text-black ">Give All You Need</h2>
                 </div>
-            </div>
-        </aside>
-        <!-- affichage des produits en js  -->
-        <section class="md:col-span-9 w-full">
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 w-full  " id="Pro-sec1">
-            </div>
-            <!-- pagination -->
-            <div class=" flex justify-between mt-12 mb-12 gap2 border-t border-gray-200 pb-12 " id="pagination">
-            </div>
-        </section>
-
-
-
-    </section>
-
-    <section class=" flex gap-8 p-10 w-full">
-        <div class="flex justify-between align-center w-full ">
-            <div>
-                <h1 class="text-base md:text-4xl text-[#080808] mb-6 tracking-tighter font-black">Explore our
-                    recomendations</h1>
-            </div>
-            <div class=" flex  gap-6">
-                <button onclick="move(-1)"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-move-left-icon lucide-move-left">
-                        <path d="M6 8L2 12L6 16" />
-                        <path d="M2 12H22" />
-                    </svg></button>
-                <button onclick="move(1)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
-                        <path d="M18 8L22 12L18 16" />
-                        <path d="M2 12H22" />
-                    </svg></button>
-            </div>
-        </div>
-
-    </section>
-    <!-- carte de recommandation en js e -->
-    <div class="relative overflow-hidden w-full p-10 mt-[-20px] [scrollbar-width:none] overflow-x-auto scrollbar-hide [&-::-webkit-scrollbar]:hidden [-ms-overflow-style:none]"
-        id="carousel-viewPoint">
-
-        <div class="flex gap-8 transition-transform duration-500 ease-out   " id="carousel-rail">
-
-
-        </div>
-
-
-    </div>
-
-    <!-- cadre d appel -->
-    <div class=" md:p-10">
-        <section class="mt-12 p-10 w-full bg-[linear-gradient(135deg,#151515_0%,#080808_100%)] text-white md:rounded-3xl flex flex-col md:flex-row justify-between items-stretch">
-            <div class="flex flex-col gap-6 md:gap-12 ">
-                <h1 class="text-2xl md:text-6xl font-black">Ready to Get <br> Our New stuff?</h1>
-                <div class="relative md:w-86 mb-4 md:mb-0 text-black">
-                    <input type="text" placeholder="Your Email"
+                <div class="relative w-full md:w-96">
+                    <input type="text" placeholder="Search on DSK Shop..."
                         class="w-full bg-dsk-card border border-gray-200 rounded-full py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
                     <button
-                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-dsk-text text-dsk-card px-5 py-1.5 rounded-full text-sm font-medium">Send</button>
+                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-dsk-text text-dsk-card px-5 py-1.5 rounded-full text-sm font-medium">Search</button>
                 </div>
             </div>
-            <div class=" flex flex-col justify-end  ">
-                <h1 class="font-black">Peak performance, Zero compromise, Built to last</h1>
-                <p class="text-gray-300 mt-4 text-sm"> Push the boundaries of what's possible. Engineered for those who demand
-                    <br> peak performance and zero compromise. Fast, sleek, and built to last
-                </p>
-
-            </div>
+        </header>
 
 
+
+
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 bg-dsk-bg p-6 md:p-10">
+
+            <!-- sidebar-->
+            <aside class="md:col-span-3 space-y-8 w-64 flex-shrink-0">
+
+                <h2 class="text-xl font-bold mb-6">Category</h2>
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between bg-gray-100 p-3 rounded-xl cursor-pointer">
+                        <div onclick="filtrerParCategorie('All')" class="flex items-center gap-3">
+                            <i data-lucide="shopping-bag" class="w-5 h-5 text-gray-600"></i>
+                            <span class="font-semibold text-sm">All Product</span>
+                        </div>
+                        <span title="lenght of products"
+                            class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
+                            id="number">32</span>
+                    </div>
+
+                    <div class="ml-6 border-l border-gray-200 space-y-4 py-2">
+                        <div onclick="filtrerParCategorie('Home')" class="flex items-center gap-3 pl-4 relative">
+                            <div class="absolute left-0 w-3 h-[1px] bg-gray-200"></div>
+                            <i data-lucide="home" class="w-4 h-4 text-gray-400"></i>
+                            <span class="text-sm text-gray-500 hover:text-black cursor-pointer">For Home</span>
+                        </div>
+                        <div onclick="filtrerParCategorie('Music')" class="flex items-center gap-3 pl-4 relative">
+                            <div class="absolute left-0 w-3 h-[1px] bg-gray-200"></div>
+                            <i data-lucide="music" class="w-4 h-4 text-gray-400"></i>
+                            <span class="text-sm text-gray-500 hover:text-black cursor-pointer">For Music</span>
+                        </div>
+                        <div onclick="filtrerParCategorie('Phone')" class="flex items-center gap-3 pl-4 relative">
+                            <div class="absolute left-0 w-3 h-[1px] bg-gray-200"></div>
+                            <i data-lucide="smartphone" class="w-4 h-4 text-gray-400"></i>
+                            <span class="text-sm text-gray-500 hover:text-black cursor-pointer">For Phone</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 space-y-4 pt-6 border-t border-gray-100">
+                    <div class="flex items-center justify-between group cursor-pointer">
+                        <div class="flex items-center gap-3 text-gray-500 group-hover:text-black transition-colors">
+                            <i data-lucide="search" class="w-5 h-5"></i>
+                            <span class="text-sm font-medium">New Arrival</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-300"></i>
+                    </div>
+
+                    <div class="flex items-center justify-between group cursor-pointer">
+                        <div class="flex items-center gap-3 text-gray-500 group-hover:text-black transition-colors">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            <span class="text-sm font-medium">Best Seller</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-300"></i>
+                    </div>
+
+                    <div class="flex items-center justify-between group cursor-pointer text-red-500">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="percent" class="w-5 h-5"></i>
+                            <span class="text-sm font-medium">On Discount</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50"></i>
+                    </div>
+                </div>
+            </aside>
+            <!-- affichage des produits en js  -->
+            <section class="md:col-span-9 w-full">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 w-full  " id="Pro-sec1">
+                </div>
+                <!-- pagination -->
+                <div class=" flex justify-between mt-12 mb-12 gap2 border-t border-gray-200 pb-12 " id="pagination">
+                </div>
+            </section>
 
 
 
         </section>
+
+        <section class=" flex gap-8 p-10 w-full">
+            <div class="flex justify-between align-center w-full ">
+                <div>
+                    <h1 class="text-base md:text-4xl text-[#080808] mb-6 tracking-tighter font-black">Explore our
+                        recomendations</h1>
+                </div>
+                <div class=" flex  gap-6">
+                    <button onclick="move(-1)"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-move-left-icon lucide-move-left">
+                            <path d="M6 8L2 12L6 16" />
+                            <path d="M2 12H22" />
+                        </svg></button>
+                    <button onclick="move(1)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-move-right-icon lucide-move-right">
+                            <path d="M18 8L22 12L18 16" />
+                            <path d="M2 12H22" />
+                        </svg></button>
+                </div>
+            </div>
+
+        </section>
+        <!-- carte de recommandation en js e -->
+        <div class="relative overflow-hidden w-full p-10 mt-[-20px] [scrollbar-width:none] overflow-x-auto scrollbar-hide [&-::-webkit-scrollbar]:hidden [-ms-overflow-style:none]"
+            id="carousel-viewPoint">
+            <div class="flex gap-8 transition-transform duration-500 ease-out   " id="carousel-rail">
+            </div>
+        </div>
+
+        <!-- cadre d appel -->
+        <div class=" md:p-10">
+            <section
+                class="mt-12 p-10 w-full bg-[linear-gradient(135deg,#151515_0%,#080808_100%)] text-white md:rounded-3xl flex flex-col md:flex-row justify-between items-stretch">
+                <div class="flex flex-col gap-6 md:gap-12 ">
+                    <h1 class="text-2xl md:text-6xl font-black">Ready to Get <br> Our New stuff?</h1>
+                    <div class="relative md:w-86 mb-4 md:mb-0 text-black">
+                        <input type="text" placeholder="Your Email"
+                            class="w-full bg-dsk-card border border-gray-200 rounded-full py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
+                        <button
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-dsk-text text-dsk-card px-5 py-1.5 rounded-full text-sm font-medium">Send</button>
+                    </div>
+                </div>
+                <div class=" flex flex-col justify-end  ">
+                    <h1 class="font-black">Peak performance, Zero compromise, Built to last</h1>
+                    <p class="text-gray-300 mt-4 text-sm"> Push the boundaries of what's possible. Engineered for those
+                        who demand
+                        <br> peak performance and zero compromise. Fast, sleek, and built to last
+                    </p>
+
+                </div>
+
+
+
+
+
+            </section>
+        </div>
+        <footer class="p-10 ">
+            <section class="flex flex-col md:flex-row justify-between mt-6 md:items-start gap-8">
+                <div class="flex gap-16">
+                    <div>
+                        <h1 class="font-black mb-4 md:text-2xl text-black">About</h1>
+                        <ul class="flex flex-col gap-2 text-gray-500 text-sm font-bold">
+                            <li class="hover:text-black cursor-pointer transition-colors duration-300">Blog</li>
+                            <li class="hover:text-black cursor-pointer transition-colors duration-300">Meet The Team
+                            </li>
+                            <li class="hover:text-black cursor-pointer transition-colors duration-300">Contact Us</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h1 class="font-black mb-4 md:text-2xl text-black">Support</h1>
+                        <ul class="flex flex-col gap-2 text-gray-500 text-sm font-bold">
+                            <li class="hover:text-black cursor-pointer transition-colors duration-300">Shipping</li>
+                            <li class="hover:text-black cursor-pointer transition-colors duration-300">Return</li>
+                            <li class="hover:text-black cursor-pointer transition-colors duration-300">FAQ</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-6 items-end  mt-auto">
+                    <h1 class="font-black text-gray-500 md:text-right">Social Media</h1>
+                    <div class="flex gap-3">
+                        <a href="#"
+                            class="p-2 bg-black text-white border rounded-full hover:bg-pink-600 transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="p-2 bg-black text-white border rounded-full hover:bg-blue-700 transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="p-2 bg-black text-white border rounded-full hover:bg-gray-800 transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="p-2 bg-black text-white border rounded-full hover:bg-green-500 transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </footer>
+
+        <div class="flex justify-between align-center mt-4 p-6 border-t border-gray-200">
+            <p class="text-gray-400 text-xs">© 2026 DSK Shop. All rights reserved.</p>
+            <div class="flex flex-row gap-6">
+                <a href="legal.html" class="font-black text-gray-600 text-xs hover:text-black">
+                    <p>Term Of Service</p>
+                </a>
+                <a href="legal.html" class="font-black text-gray-600 text-xs hover:text-black">
+                    <p>Privacy Policy</p>
+                </a>
+            </div>
+        </div>
+        <script>
+            lucide.createIcons();
+        </script>
     </div>
-<footer class="p-10 ">
-    <section class="flex flex-col md:flex-row justify-between mt-6 md:items-start gap-8">
-        <div class="flex gap-16">
-            <div>
-                <h1 class="font-black mb-4 md:text-2xl text-black">About</h1>
-                <ul class="flex flex-col gap-2 text-gray-500 text-sm font-bold">
-                    <li class="hover:text-black cursor-pointer transition-colors duration-300">Blog</li>
-                    <li class="hover:text-black cursor-pointer transition-colors duration-300">Meet The Team</li>
-                    <li class="hover:text-black cursor-pointer transition-colors duration-300">Contact Us</li>
-                </ul>
-            </div>
-            <div>
-                <h1 class="font-black mb-4 md:text-2xl text-black">Support</h1>
-                <ul class="flex flex-col gap-2 text-gray-500 text-sm font-bold">
-                    <li class="hover:text-black cursor-pointer transition-colors duration-300">Shipping</li>
-                    <li class="hover:text-black cursor-pointer transition-colors duration-300">Return</li>
-                    <li class="hover:text-black cursor-pointer transition-colors duration-300">FAQ</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="flex flex-col gap-6 items-end  mt-auto">
-            <h1 class="font-black text-gray-500 md:text-right">Social Media</h1>
-            <div class="flex gap-3">
-                <a href="#" class="p-2 bg-black text-white border rounded-full hover:bg-pink-600 transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                    </svg>
-                </a>
-                <a href="#" class="p-2 bg-black text-white border rounded-full hover:bg-blue-700 transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                    </svg>
-                </a>
-                <a href="#" class="p-2 bg-black text-white border rounded-full hover:bg-gray-800 transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
-                    </svg>
-                </a>
-                <a href="#" class="p-2 bg-black text-white border rounded-full hover:bg-green-500 transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-</footer>
-
-    <div class="flex justify-between align-center mt-4 p-6 border-t border-gray-200"> 
-<p class="text-gray-400 text-xs">© 2026 DSK Shop. All rights reserved.</p>
-<div class="flex flex-row gap-6">
-    <a href="legal.html" class="font-black text-gray-600 text-xs hover:text-black"><p>Term Of Service</p></a>
-    <a href="legal.html" class="font-black text-gray-600 text-xs hover:text-black"> <p>Privacy Policy</p> </a>
-</div>
-</div>
-    <script>
-     lucide.createIcons();
-    </script>
-</div>
-    <div id="side-cart" class="fixed top-0 right-0 h-full w-[350px] bg-white shadow-2xl z-[100] translate-x-full transition-transform duration-500 ease-in-out p-6">
-        <div class="flex justify-between items-center border-b pb-4">
+   
+    <div id="side-cart" class="fixed top-0 right-0 h-full w-[350px] bg-white shadow-2xl z-[100] translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between">
+    <div>
+        <div class="flex justify-between items-center border-b p-4">
             <h2 class="text-xl font-black">Mon Panier</h2>
             <button onclick="fermerPanier()" class="p-2 hover:bg-gray-100 rounded-full">
                 <i data-lucide="x"></i>
             </button>
         </div>
-    
-        <div id="cart-content" class="mt-8 space-y-4 flex flex-col items-center justify-center text-gray-400">
-            <h3 class="flex justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart">
-                    <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
-                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
-                </svg>
-            </h3>
-            <p class="text-center font-black">Votre panier est vide.</p>
-        </div>
+
+        <div id="cart-content" class="mt-8 space-y-4 px-4 overflow-y-auto max-h-[60vh]">
+            </div>
     </div>
-<script type="module" src="main.js"></script>
+
+    <div id="cart-footer" class="flex flex-col gap-4 bg-gray-50 p-6 border-t border-gray-200">
+        <div class="space-y-2">
+            <div class="flex justify-between items-center text-gray-500 text-sm">
+                <span>Sous-total</span>
+                <span id="cart-subtotal" class="font-medium text-black">0 FCFA</span>
+            </div>
+
+            <div class="flex justify-between items-center text-gray-500 text-sm">
+                <span>Livraison</span>
+                <span id="cart-shipping" class="font-bold">0 FCFA</span>
+            </div>
+
+            <div class="border-t border-gray-200 my-2"></div>
+
+            <div class="flex justify-between items-center">
+                <span class="text-lg font-black text-black">Total :</span>
+                <span id="cart-total-final" class="text-lg font-black text-[#22c55e]">0 FCFA</span>
+            </div>
+        </div>
+
+        <button onclick="envoyerCommandeWhatsApp()" class="w-full py-4 bg-black text-white font-bold rounded-2xl active:scale-95 transition-all duration-300">
+            Valider la commande
+        </button>
+    </div>
+</div>
+    <script type="module" src="main.js"></script>
 </body>
 
 </html>
