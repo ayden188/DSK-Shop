@@ -38,7 +38,7 @@ export function showsPrds() {
         </a>                    
  <div class="flex justify-between items-center mt-auto pt-4 gap-2">
     <div class="flex flex-col">
-        <span class="font-bold text-[15px] sm:text-xl text-[#080808] whitespace-nowrap leading-none">
+        <span class="font-bold text-[15px] sm:text-xl  text-[#080808] whitespace-nowrap leading-none">
             ${produit.prix.toLocaleString('fr-FR')}  <span class="text-[10px] sm:text-xs ml-0.5">FCFA</span>
         </span>
     </div>
@@ -189,52 +189,86 @@ export function darkMode() {
     }
 }
 
-// logique du carrousel
 
-let CurrentIndex = 0;
 
-export function moveCarousel(direction) {
-    const container = document.getElementById('carousel-slide'); // Corrigé : container
-    const totalSlides = 4; 
-    
+
+
+
+
+
+let CurrentIndex = 0; 
+
+function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    if (dots.length === 0) return;
+
+    dots.forEach((dot, index) => {
+        if (index === CurrentIndex) {
+            dot.className = "dot w-8 h-1.5 rounded-full bg-white shadow-sm transition-all duration-500 opacity-100";
+        } else {
+            dot.className = "dot w-1.5 h-1.5 rounded-full bg-white/70 transition-all duration-500 opacity-90 hover:opacity-100";
+        }
+    });
+}
+
+// 2. Initialisation du Carrousel
+export function InitCarroussel() {
+    const proCarrousser = produits.slice(0, 4); 
+    const container = document.getElementById('carousel-slide');
     if (!container) return;
 
-    CurrentIndex += direction;
+    // Rendu des images
+    container.innerHTML = proCarrousser.map(p => `
+        <div class="relative min-w-full h-[400px] md:h-[500px] flex items-center group">
+            <img src="${p.image}" class="absolute inset-0 w-full h-full object-cover" alt="${p.nom}">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
+            <div class="relative  z-10 px-12 md:px-20 space-y-6">
+                <span class="text-blue-400 font-bold uppercase tracking-[0.3em] text-xs">Featured Product</span>
+                <h2 class="text-4xl md:text-6xl font-black text-white leading-tight uppercase tracking-tighter">${p.nom}</h2>
+                <p class="text-gray-300 text-xl font-medium">${p.prix.toLocaleString()} FCFA</p>
+                <button onclick="handleAchat('${p.id}')" class="bg-white text-black px-10 py-4 rounded-full font-bold text-sm hover:bg-[#caa52b] hover:text-white transition-all shadow-xl active:scale-95">ACHETER MAINTENANT</button>
+            </div>
+        </div>`).join('');
 
-    if (CurrentIndex >= totalSlides) {
-        CurrentIndex = 0;
-    } else if (CurrentIndex < 0) {
-        CurrentIndex = totalSlides - 1;
-    }
+    const oldNav = document.getElementById('dots-container');
+    if (oldNav) oldNav.remove();
+
+    const nav = document.createElement('div');
+    nav.id = "dots-container";
+    nav.className = "absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 z-48";
+    
+    nav.innerHTML = proCarrousser.map((_, i) => `
+        <div onclick="goToSlide(${i})" class="dot cursor-pointer p-1"></div>
+    `).join('');
+
+    container.parentElement.appendChild(nav);
+
+    updateDots(); // Allumage initial
+
+    setInterval(() => moveCarousel(1), 55000);
+}
+
+export function moveCarousel(direction) {
+    const container = document.getElementById('carousel-slide');
+    const total = document.querySelectorAll('#carousel-slide > div').length;
+    if (!container || total === 0) return;
+
+    CurrentIndex += direction;
+    if (CurrentIndex >= total) CurrentIndex = 0;
+    if (CurrentIndex < 0) CurrentIndex = total - 1;
 
     container.style.transform = `translateX(-${CurrentIndex * 100}%)`;
+    updateDots();
 }
+
+export function goToSlide(index) {
+    const container = document.getElementById('carousel-slide');
+    if (!container) return;
+    
+    CurrentIndex = index;
+    container.style.transform = `translateX(-${CurrentIndex * 100}%)`;
+    updateDots();
+}
+
+window.goToSlide = goToSlide;
 window.moveCarousel = moveCarousel;
-//carrouseele onkdfhbfwfl 
-export function InitCarroussel() {
-    const proCarrousser = produits.slice(0, 4);
-    const containerCarrouse = document.getElementById('carousel-slide');
-    if (!containerCarrouse) return;
-    containerCarrouse.innerHTML = proCarrousser.map(p => `
-        <div class="relative min-w-full h-[400px] md:h-[600px] flex items-center">
-            <img src="${p.image}" class="absolute inset-0 w-full h-full object-cover" alt="${p.nom}">
-            
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
-            
-            <div class="relative z-10 px-12 md:px-20 space-y-4">
-                <span class="text-blue-400 font-bold uppercase tracking-[0.3em] text-xs">Featured Product</span>
-                <h2 class="text-4xl md:text-6xl font-black text-white leading-tight uppercase tracking-tighter">
-                    ${p.nom}
-                </h2>
-                <p class="text-gray-300 text-lg font-medium">${p.prix.toLocaleString()} FCFA</p>
-                
-                <button onclick="handleAchat('${p.id}')" 
-                    class="bg-white text-black px-10 py-4 rounded-full font-bold text-sm hover:bg-blue-600 hover:text-white transition-all active:scale-95 shadow-xl">
-                    ACHETER MAINTENANT
-                </button>
-            </div>
-        </div>`).join(''); 
-        setInterval(() => {
-    moveCarousel(1);
-}, 55000);
-}
