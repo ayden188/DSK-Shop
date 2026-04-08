@@ -21,7 +21,7 @@ export function showsPrds() {
     
     <div class="bg-gray-200 rounded-xl sm:rounded-2xl aspect-square flex items-center justify-center overflow-hidden mb-3 relative">
         <a href="product.html?id=${produit.id}" class="block h-full w-full">
-            <img src="${produit.image}" class="object-cover h-full w-full group-hover:scale-110 transition-transform duration-500">
+            <img src="${produit.image}" alt="${produit.nom}" class="object-cover h-full w-full group-hover:scale-110 transition-transform duration-500">
         </a>
         <span class="absolute top-1 right-1 sm:top-2 sm:right-2 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded-md text-[9px] sm:text-[10px] font-bold shadow-sm">
             ⭐ ${produit.rating} 
@@ -141,7 +141,7 @@ export function showREcommande() {
     rail.innerHTML = topProducts.map(produit => `
      <div class="bg-dsk-card p-4 rounded-3xl border  min-w-[380px] border-gray-100 cursor-pointer transition-all group" >
             <div class="bg-gray-100 rounded-2xl h-48 flex items-center justify-center overflow-hidden mb-4 relative">
-                <img src="${produit.image}" title="voir les details" class="group-hover:scale-110 transition-transform duration-500 object-cover h-full w-full">
+                <img src="${produit.image}" title="voir les details" alt="${produit.nom}" class="group-hover:scale-110 transition-transform duration-500 object-cover h-full w-full">
                 <span class="absolute top-2 right-2 bg-dsk-card backdrop-blur-sm px-2 py-1 rounded-lg text-[10px] font-bold">
                     ${produit.categorie} 
                 </span>
@@ -226,7 +226,7 @@ export function InitCarroussel() {
                 <span class="text-blue-400 font-bold uppercase tracking-[0.3em] text-xs">Featured Product</span>
                 <h2 class="text-4xl md:text-6xl font-black text-white leading-tight uppercase tracking-tighter">${p.nom}</h2>
                 <p class="text-gray-300 text-xl font-medium">${p.prix.toLocaleString()} FCFA</p>
-                <button onclick="handleAchat('${p.id}')" class="bg-white text-black px-10 py-4 rounded-full font-bold text-sm hover:bg-[#caa52b] hover:text-white transition-all shadow-xl active:scale-95">ACHETER MAINTENANT</button>
+                <button onclick="handleAchat('${p.id}')" class="bg-white text-black px-10 py-4 rounded-2xl font-bold text-sm hover:bg-[#caa52b] hover:text-white transition-all shadow-xl active:scale-95">ACHETER MAINTENANT</button>
             </div>
         </div>`).join('');
 
@@ -272,3 +272,50 @@ export function goToSlide(index) {
 
 window.goToSlide = goToSlide;
 window.moveCarousel = moveCarousel;
+
+
+
+
+export function initCategoryMenu() {
+    const btn = document.querySelector('#cat-but');
+    const menu = document.querySelector('#category-menu');
+    const chevron = document.querySelector('#cat-chevron');
+
+    if (!btn || !menu) return;
+
+    btn.onclick = (e) => {
+        e.stopPropagation(); 
+    
+        const isOpen = !menu.classList.contains('opacity-0');
+
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    };
+
+    function openMenu() {
+        menu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none', 'translate-y-[-10px]');
+        menu.classList.add('opacity-100', 'scale-100', 'translate-y-0');
+        if (chevron) chevron.classList.add('rotate-180');
+    }
+
+    function closeMenu() {
+        menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none', 'translate-y-[-10px]');
+        menu.classList.remove('opacity-100', 'scale-100', 'translate-y-0');
+        if (chevron) chevron.classList.remove('rotate-180');
+    }
+    document.addEventListener('click', () => closeMenu());
+}
+
+window.selectCat = (cat) => {
+    console.log("Filtrage par :", cat);
+    filtrerParCategorie(cat); 
+    const menu = document.querySelector('#category-menu');
+    if (menu) {
+        menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    }
+};
+
+window.initCategoryMenu = initCategoryMenu;

@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSK Shop | Mode & Lifestyle</title>
+    <title translate="no">DSK Shop - Boutique | Mode & Lifestyle</title>
+    <meta name="description" content="Explorez la boutique DSK Shop : mode, lifestyle et produits de qualité. Trouvez vos articles préférés avec filtres et recherche facile.">
+    <meta name="keywords" content="boutique, mode, lifestyle, produits, DSK Shop, achat en ligne">
+    <meta property="og:title" content="DSK Shop - Boutique | Mode & Lifestyle">
+    <meta property="og:description" content="Explorez la boutique DSK Shop : mode, lifestyle et produits de qualité.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:url" content="https://dsk-shop.com/shop.html">
+    <meta property="og:type" content="website">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
@@ -35,6 +42,16 @@
                 }
             }
         }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DSK Shop",
+        "url": "https://dsk-shop.com",
+        "logo": "https://ui-avatars.com/api/?name=DSK",
+        "description": "Votre destination pour la mode et le lifestyle."
+    }
     </script>
 
     <style>
@@ -71,7 +88,7 @@
                 <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
                     <i data-lucide="zap" class="text-white w-5 h-5"></i>
                 </div>
-                <span class="font-bold text-xl tracking-tight">DSK SHOP</span>
+                <span class="font-bold text-xl tracking-tight" translate="no">DSK SHOP</span>
             </div>
 
             <ul class="hidden md:flex gap-10 font-bold text-gray-500">
@@ -104,7 +121,7 @@
 
 
     <!-- caroussel debut de page 31/3/26  -->
-    <div class="relative w-full max-w-7xl mx-auto  overflow-hidden mt-24 md:rounded-[2rem] shadow-2xl shadow-slate-200  group ">
+    <div class="relative w-full max-w-7xl  mx-auto  md:w-[90%] overflow-hidden mt-24 md:rounded-[2rem] shadow-2xl shadow-slate-200  group ">
         <div id="carousel-slide" class="flex transition-transform  duration-700 cubic-bezier(0.4, 0, 0.2, 1) w-full  ">
         </div>
 
@@ -137,7 +154,7 @@
   <div class="relative w-full md:w-96">
                     <input type="text" placeholder="Search on DSK Shop..."
                         class="w-full bg-dsk-card border border-gray-200 rounded-full py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
-                    <button
+                    <button onclick="searchProducts()"
                         class="absolute right-2 top-1/2 -translate-y-1/2 bg-dsk-text text-dsk-card px-5 py-1.5 rounded-full text-sm font-medium">Search</button>
                 </div>
         </div>
@@ -146,30 +163,30 @@
             <section class="flex-1">
                 <div class="flex items-center justify-between gap-4 pb-8 border-b border-slate-100">
  
-                    <div class="flex items-center gap-3 overflow-x-auto no-scrollbar py-1">
-                        <button
-                            class="group flex-shrink-0 flex items-center gap-2 bg-white border border-slate-200 hover:border-slate-900 px-5 py-2.5 rounded-2xl text-sm font-bold transition-all active:scale-95 shadow-sm">
-                            Category
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                class="h-4 w-4 text-slate-400 group-hover:text-slate-900 transition-colors" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
+                  <div class="relative inline-block">
+    <button id="cat-but"
+        class="group flex-shrink-0 flex items-center gap-2 bg-white border border-slate-200 hover:border-slate-900 px-5 py-2.5 rounded-2xl text-sm font-bold transition-all active:scale-95 shadow-sm">
+        Category
+        <svg id="cat-chevron" xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 text-slate-400 group-hover:text-slate-900 transition-transform duration-300" 
+            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </button>
 
-                        <button
-                            class="group flex-shrink-0 flex items-center gap-2 bg-white border border-slate-200 hover:border-slate-900 px-5 py-2.5 rounded-2xl text-sm font-bold transition-all active:scale-95 shadow-sm">
-                            Price Range
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                class="h-4 w-4 text-slate-400 group-hover:text-slate-900 transition-colors" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                    </div>
-
+    <div id="category-menu" 
+        class="absolute left-0 mt-3 w-64 origin-top-left rounded-[2rem] bg-white/80 backdrop-blur-xl shadow-2xl ring-1 ring-black/5 z-50 p-2 border border-slate-100 
+               opacity-0 scale-95 pointer-events-none translate-y-[-10px]
+               transition-all duration-300 ease-out">
+        
+        <div id="category-list" class="flex flex-col gap-1 text-slate-900">
+            <button onclick="selectCat('All')" class="text-left px-4 py-3 text-sm font-bold hover:bg-slate-900 hover:text-white rounded-xl transition-all">Toutes les catégories</button>
+            <button onclick="selectCat('Home')" class="text-left px-4 py-3 text-sm font-bold hover:bg-slate-900 hover:text-white rounded-xl transition-all">Home</button>
+            <button onclick="selectCat('Music')" class="text-left px-4 py-3 text-sm font-bold hover:bg-slate-900 hover:text-white rounded-xl transition-all">Music</button>
+            <button onclick="selectCat('Tech')" class="text-left px-4 py-3 text-sm font-bold hover:bg-slate-900 hover:text-white rounded-xl transition-all">Tech</button>
+            </div>
+    </div>
+</div>
                     <button
                         class="flex items-center gap-2 bg-slate-900 text-white hover:bg-black px-6 py-3 rounded-2xl text-sm font-bold transition-all shadow-lg shadow-slate-200 active:scale-95">
                         <span>Filters</span>

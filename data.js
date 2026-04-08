@@ -90,3 +90,5 @@ export const produits = [
         description: "Track your health and your notifications in style."
     }
 ];
+
+export const categories = [...new Set(produits.map(p => p.categorie))];

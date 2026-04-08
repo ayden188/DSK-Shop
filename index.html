@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSK Shop | Mode & Lifestyle</title>
+    <title>DSK Shop - Accueil | Mode & Lifestyle</title>
+    <meta name="description"
+        content="Découvrez DSK Shop, votre destination pour la mode et le lifestyle. Produits de qualité, livraison rapide et expérience d'achat unique.">
+    <meta name="keywords" content="mode, lifestyle, boutique en ligne, DSK Shop, produits, achat, livraison">
+    <meta property="og:title" content="DSK Shop - Accueil | Mode & Lifestyle">
+    <meta property="og:description"
+        content="Découvrez DSK Shop, votre destination pour la mode et le lifestyle. Produits de qualité, livraison rapide.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:url" content="https://dsk-shop.com">
+    <meta property="og:type" content="website">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
@@ -35,6 +45,16 @@
                 }
             }
         }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DSK Shop",
+        "url": "https://dsk-shop.com",
+        "logo": "https://ui-avatars.com/api/?name=DSK",
+        "description": "Votre destination pour la mode et le lifestyle."
+    }
     </script>
 
     <style>
@@ -78,8 +98,8 @@
                 class="absolute inset-0 w-full h-full object-cover brightness-[0.8]" alt="Background Shop">
 
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <h1
-                    class="font-title text-[150px] md:text-[450px] font-black text-white opacity-90 tracking-tighter select-none leading-none">
+                <h1 class="font-title text-[150px] md:text-[450px] font-black text-white opacity-90 tracking-tighter select-none leading-none"
+                    translate="no">
                     Shop
                 </h1>
             </div>
@@ -91,7 +111,7 @@
                         <i data-lucide="zap" class="text-white w-5 h-5"></i>
 
                     </div>
-                    <span class="font-bold text-xl tracking-tight">DSK SHOP</span>
+                    <span class="font-bold text-xl tracking-tight" translate="no">DSK SHOP</span>
                 </div>
 
                 <ul class="hidden md:flex gap-10 font-bold text-gray-500">
@@ -120,14 +140,12 @@
                 </div>
                 <div class="relative w-full md:w-96">
                     <input type="text" placeholder="Search on DSK Shop..."
-                        class="w-full bg-dsk-card border border-gray-200 rounded-full py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
-                    <button
+                        class="w-full bg-dsk-card border border-gray-200 rounded-2xl py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
+                    <button onclick="searchProducts()"
                         class="absolute right-2 top-1/2 -translate-y-1/2 bg-dsk-text text-dsk-card px-5 py-1.5 rounded-full text-sm font-medium">Search</button>
                 </div>
             </div>
         </header>
-
-
 
 
         <section class="grid grid-cols-1 md:grid-cols-12 gap-8 bg-dsk-bg p-6 md:p-10">
@@ -158,10 +176,10 @@
                             <i data-lucide="music" class="w-4 h-4 text-gray-400"></i>
                             <span class="text-sm text-gray-500 hover:text-black cursor-pointer">For Music</span>
                         </div>
-                        <div onclick="filtrerParCategorie('Phone')" class="flex items-center gap-3 pl-4 relative">
+                        <div onclick="filtrerParCategorie('Tech')" class="flex items-center gap-3 pl-4 relative">
                             <div class="absolute left-0 w-3 h-[1px] bg-gray-200"></div>
                             <i data-lucide="smartphone" class="w-4 h-4 text-gray-400"></i>
-                            <span class="text-sm text-gray-500 hover:text-black cursor-pointer">For Phone</span>
+                            <span class="text-sm text-gray-500 hover:text-black cursor-pointer">For Tech</span>
                         </div>
                     </div>
                 </div>
@@ -205,6 +223,59 @@
 
         </section>
 
+
+        <section class="w-full bg-[#f8f8f8] py-20 px-4 md:px-8 mt-6  md:-w-[90%]  ">
+            <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 lg:gap-20">
+
+
+                <div class="w-full md:w-1/2 rounded-2xl overflow-hidden  relative group bg-white p-4 bg-[#f8f8f8]">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200"
+                        alt="Headsound Elite Headphone"
+                        class="w-full h-[400px] md:h-[550px] object-contain rounded-2xl bg-[#f8f8f8] ">
+                    <div
+                        class="absolute bottom-10 right-10 bg-white/70 backdrop-blur-md px-6 py-3 rounded-2xl shadow-lg border border-white/50 flex flex-col items-end">
+                        <span class="text-[10px] font-black uppercase text-gray-500 tracking-widest">Headsound
+                            Elite</span>
+                        <span class="text-2xl font-extrabold text-slate-950">12.00 FCFA</span>
+                    </div>
+                </div>
+
+                <div
+                    class="w-full md:w-1/2 space-y-6 md:space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
+                    <span class="text-xs font-bold tracking-[0.5em] uppercase text-gray-400">Featured Collection</span>
+
+                    <h2
+                        class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-950 uppercase tracking-tighter leading-[0.9]">
+                        Elevate Your <br>
+                        <span class="text-gray-300">Sound Game</span>
+                    </h2>
+
+                    <p class="max-w-md text-gray-600 leading-relaxed text-sm md:text-base font-medium">
+                        Découvrez le nouveau <strong class="text-slate-950 font-bold">Headsound Elite</strong>. Un
+                        design minimaliste pour une performance audio exceptionnelle. Son immersif, confort absolu,
+                        jusqu'à 30h d'autonomie.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
+                        <a href="product.html?id=headsound-elite"
+                            class="w-full sm:w-auto bg-slate-950 text-white px-10 py-4 rounded-2xl font-bold text-sm shadow-xl active:scale-95 transition-all hover:bg-[#caa52b] flex items-center justify-center gap-2 group">
+                            Découvrir le produit
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="shop.html?category=Audio"
+                            class="w-full sm:w-auto text-slate-950 px-10 py-4 rounded-2xl font-bold text-sm transition-all hover:bg-slate-100 flex items-center justify-center gap-2">
+                            Voir toute la gamme Audio
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+
         <section class=" flex gap-8 p-10 w-full">
             <div class="flex justify-between align-center w-full ">
                 <div>
@@ -245,7 +316,7 @@
                     <h1 class="text-2xl md:text-6xl font-black">Ready to Get <br> Our New stuff?</h1>
                     <div class="relative md:w-86 mb-4 md:mb-0 text-black">
                         <input type="text" placeholder="Your Email"
-                            class="w-full bg-dsk-card border border-gray-200 rounded-full py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
+                            class="w-full bg-dsk-card border border-gray-200 rounded-2xl py-3 px-6 pr-12 focus:outline-none focus:ring-2 focus:ring-dsk-primary/20 transition-all">
                         <button
                             class="absolute right-2 top-1/2 -translate-y-1/2 bg-dsk-text text-dsk-card px-5 py-1.5 rounded-full text-sm font-medium">Send</button>
                     </div>
@@ -258,12 +329,191 @@
                     </p>
 
                 </div>
-
-
-
-
-
             </section>
+
+            <!-- FAQ -->
+            <section class=" w-full flex mt-20 p-10 flex  flex-col ">
+                <div class=" w-full justify-between flex flex-col gap-6 md:flex-row ">
+                    <div>
+                        <h1 class="font-black md:text-4xl  mb-6 ">Frequently Asked Questions</h1>
+                        <span class="text-gray-500">Finds answers for common inquirles about products ,shipping ,
+                            returns <br> ans customer support.</span>
+                    </div>
+                    <div class=" flex items-end "> <button
+                            class=" px-6 py-3 shadow-2xl font-black rounded-2xl text-white bg-black text-sm ">Contact
+                            Us</button></div>
+
+                </div>
+
+                <!-- box de question et reponse  -->
+
+                <div
+                    class="w-full grid grid-cols-1 md:grid-cols-2 md:grid-rows-3 md:grid-flow-col gap-4 mt-12 items-start">
+
+                    <div
+                        class="faq-item group border-b border-gray-100 md:border md:rounded-xl md:p-2 bg-white transition-all hover:shadow-sm h-fit">
+                        <button class="w-full flex items-center justify-between p-4 text-left focus:outline-none"
+                            onclick="toggleFAQ(this)">
+                            <div class="flex items-center gap-4">
+                                <span class="text-indigo-600 font-mono font-bold">01</span>
+                                <span class="font-semibold text-gray-800">How do I choose the right size?</span>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 icon" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer opacity-1 max-h-96 transition-all duration-500 ease-in-out ">
+                            <div class="px-12 pb-5 text-gray-500 text-sm leading-relaxed">
+                                Our items follow standard international sizing. A detailed size chart is available on
+                                every product page to help you find your perfect fit.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="faq-item group border-b border-gray-100 md:border md:rounded-xl md:p-2 bg-white transition-all hover:shadow-sm h-fit">
+                        <button class="w-full flex items-center justify-between p-4 text-left focus:outline-none"
+                            onclick="toggleFAQ(this)">
+                            <div class="flex items-center gap-4">
+                                <span class="text-indigo-600 font-mono font-bold">02</span>
+                                <span class="font-semibold text-gray-800">What are the delivery times for Lomé?</span>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 icon" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer max-h-96  transition-all duration-500 ease-in-out opacity-1 ">
+                            <div class="px-12 pb-5 text-gray-500 text-sm">
+                                For orders within Lomé, delivery usually takes 24 to 48 hours. For other cities in Togo,
+                                allow 3 to 5 business days.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="faq-item group border-b border-gray-100 md:border md:rounded-xl md:p-2 bg-white transition-all hover:shadow-sm h-fit">
+                        <button class="w-full flex items-center justify-between p-4 text-left focus:outline-none"
+                            onclick="toggleFAQ(this)">
+                            <div class="flex items-center gap-4">
+                                <span class="text-indigo-600 font-mono font-bold">03</span>
+                                <span class="font-semibold text-gray-800">Can I return an item?</span>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 icon" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer max-h-96  transition-all duration-500 ease-in-out opacity-1 ">
+                            <div class="px-12 pb-5 text-gray-500 text-sm">
+                                Yes, we accept returns within 7 days of delivery, provided the item is unworn and still
+                                has its original tags.
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div
+                        class="faq-item group border-b border-gray-100 md:border md:rounded-xl md:p-2 bg-white transition-all hover:shadow-sm h-fit">
+                        <button class="w-full flex items-center justify-between p-4 text-left focus:outline-none"
+                            onclick="toggleFAQ(this)">
+                            <div class="flex items-center gap-4">
+                                <span class="text-indigo-600 font-mono font-bold">05</span>
+                                <span class="font-semibold text-gray-800">Which payment methods do you accept?</span>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 icon" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer max-h-96  transition-all duration-500 ease-in-out opacity-1 ">
+                            <div class="px-12 pb-5 text-gray-500 text-sm">
+                                We accept Tmoney, Flooz, Visa/Mastercard, and Cash on Delivery for orders within Lomé.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="faq-item group border-b border-gray-100 md:border md:rounded-xl md:p-2 bg-white transition-all hover:shadow-sm h-fit">
+                        <button class="w-full flex items-center justify-between p-4 text-left focus:outline-none"
+                            onclick="toggleFAQ(this)">
+                            <div class="flex items-center gap-4">
+                                <span class="text-indigo-600 font-mono font-bold">06</span>
+                                <span class="font-semibold text-gray-800">Where are the products shipped from?</span>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 icon" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer max-h-96  transition-all duration-500 ease-in-out opacity-1 ">
+                            <div class="px-12 pb-5 text-gray-500 text-sm">
+                                All orders are shipped directly from our warehouse located in Lomé, Togo.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="faq-item group border-b border-gray-100 md:border md:rounded-xl md:p-2 bg-white transition-all hover:shadow-sm h-fit">
+                        <button class="w-full flex items-center justify-between p-4 text-left focus:outline-none"
+                            onclick="toggleFAQ(this)">
+                            <div class="flex items-center gap-4">
+                                <span class="text-indigo-600 font-mono font-bold">07</span>
+                                <span class="font-semibold text-gray-800">Do you ship to Benin or Ghana?</span>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 icon" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="faq-answer max-h-96  transition-all duration-500 ease-in-out opacity-1 ">
+                            <div class="px-12 pb-5 text-gray-500 text-sm">
+                                Yes, we ship across West Africa via local partners. Shipping costs and delays will be
+                                calculated at checkout.
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <script>function toggleFAQ(button) {
+                        const parent = button.closest('.faq-item');
+                        const answer = parent.querySelector('.faq-answer');
+                        const icon = parent.querySelector('.icon');
+
+                        // On récupère la hauteur actuelle calculée par le navigateur
+                        const isOpened = answer.style.maxHeight !== "0px" && !answer.classList.contains('max-h-0');
+
+                        if (isOpened) {
+                            // FERMETURE : On force le passage par scrollHeight puis à 0 pour l'animation
+                            answer.style.maxHeight = answer.scrollHeight + "px";
+                            setTimeout(() => {
+                                answer.style.maxHeight = "0px";
+                                answer.style.opacity = "0";
+                            }, 10);
+                            icon.classList.remove('rotate-180');
+                            // On s'assure que la classe initiale de Tailwind ne bloque pas
+                            answer.classList.add('max-h-0');
+                            answer.classList.remove('max-h-96');
+                        } else {
+                            // OUVERTURE
+                            answer.style.maxHeight = answer.scrollHeight + "px";
+                            answer.style.opacity = "1";
+                            icon.classList.add('rotate-180');
+                            answer.classList.remove('max-h-0');
+                        }
+                    }
+                </script>
+
+
         </div>
         <footer class="p-10 ">
             <section class="flex flex-col md:flex-row justify-between mt-6 md:items-start gap-8">
@@ -346,45 +596,47 @@
             lucide.createIcons();
         </script>
     </div>
-   
-    <div id="side-cart" class="fixed top-0 right-0 h-full w-[350px] bg-white shadow-2xl z-[100] translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between">
-    <div>
-        <div class="flex justify-between items-center border-b p-4">
-            <h2 class="text-xl font-black">Mon Panier</h2>
-            <button onclick="fermerPanier()" class="p-2 hover:bg-gray-100 rounded-full">
-                <i data-lucide="x"></i>
+
+    <div id="side-cart"
+        class="fixed top-0 right-0 h-full w-[350px] bg-white shadow-2xl z-[100] translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between">
+        <div>
+            <div class="flex justify-between items-center border-b p-4">
+                <h2 class="text-xl font-black">Mon Panier</h2>
+                <button onclick="fermerPanier()" class="p-2 hover:bg-gray-100 rounded-full">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div id="cart-content" class="mt-8 space-y-4 px-4 overflow-y-auto max-h-[60vh]">
+            </div>
+        </div>
+
+        <div id="cart-footer" class="flex flex-col gap-4 bg-gray-50 p-6 border-t border-gray-200">
+            <div class="space-y-2">
+                <div class="flex justify-between items-center text-gray-500 text-sm">
+                    <span>Sous-total</span>
+                    <span id="cart-subtotal" class="font-medium text-black">0 FCFA</span>
+                </div>
+
+                <div class="flex justify-between items-center text-gray-500 text-sm">
+                    <span>Livraison</span>
+                    <span id="cart-shipping" class="font-bold">0 FCFA</span>
+                </div>
+
+                <div class="border-t border-gray-200 my-2"></div>
+
+                <div class="flex justify-between items-center">
+                    <span class="text-lg font-black text-black">Total :</span>
+                    <span id="cart-total-final" class="text-lg font-black text-[#22c55e]">0 FCFA</span>
+                </div>
+            </div>
+
+            <button onclick="envoyerCommandeWhatsApp()"
+                class="w-full py-4 bg-black text-white font-bold rounded-2xl active:scale-95 transition-all duration-300">
+                Valider la commande
             </button>
         </div>
-
-        <div id="cart-content" class="mt-8 space-y-4 px-4 overflow-y-auto max-h-[60vh]">
-            </div>
     </div>
-
-    <div id="cart-footer" class="flex flex-col gap-4 bg-gray-50 p-6 border-t border-gray-200">
-        <div class="space-y-2">
-            <div class="flex justify-between items-center text-gray-500 text-sm">
-                <span>Sous-total</span>
-                <span id="cart-subtotal" class="font-medium text-black">0 FCFA</span>
-            </div>
-
-            <div class="flex justify-between items-center text-gray-500 text-sm">
-                <span>Livraison</span>
-                <span id="cart-shipping" class="font-bold">0 FCFA</span>
-            </div>
-
-            <div class="border-t border-gray-200 my-2"></div>
-
-            <div class="flex justify-between items-center">
-                <span class="text-lg font-black text-black">Total :</span>
-                <span id="cart-total-final" class="text-lg font-black text-[#22c55e]">0 FCFA</span>
-            </div>
-        </div>
-
-        <button onclick="envoyerCommandeWhatsApp()" class="w-full py-4 bg-black text-white font-bold rounded-2xl active:scale-95 transition-all duration-300">
-            Valider la commande
-        </button>
-    </div>
-</div>
     <script type="module" src="main.js"></script>
 </body>
 

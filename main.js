@@ -1,7 +1,19 @@
 // main.js   
 import { produits } from './data.js';
-import { showsPrds, ShowsPagination, showREcommande,darkMode ,move,changerPage, numberLenghOfProducts,InitCarroussel} from './ui.js';
+import { showsPrds, ShowsPagination, showREcommande,darkMode ,move,changerPage, numberLenghOfProducts,InitCarroussel,initCategoryMenu} from './ui.js';
 import {  setCurrentPage, setProduitsFiltres ,panier,ajouterAuPanier, actualiserVisuelPanier,} from './carte.js';
+
+window.addEventListener('DOMContentLoaded', () => {
+    setProduitsFiltres([...produits]);
+    loadFiltersFromURL();
+    InitCarroussel()
+    showsPrds(); 
+    ShowsPagination(); 
+    showREcommande();
+    numberLenghOfProducts()
+    initCategoryMenu()
+});
+
 
 
 window.supprimerDuPanier = (id) => {
@@ -40,23 +52,49 @@ window.fermerPanier = () => {
 export const ItemsPerPage = 9;
 window.move=move
 window.changerPage = changerPage;
-function filtrerParCategorie(nomCategorie) {
-    setCurrentPage(1);
-    if (nomCategorie === "All") {
-        setProduitsFiltres([...produits]);
-    } else {
-        setProduitsFiltres(produits.filter(p => p.categorie === nomCategorie));
-    }
-    showsPrds();
-    ShowsPagination();
-}
+window.filtrerParCategorie = function(nomCategorie) {
+    applyFilters(nomCategorie, '');
+};
 window.filtrerParCategorie = filtrerParCategorie;
 
-window.addEventListener('DOMContentLoaded', () => {
-    InitCarroussel()
-    showsPrds(); 
-    ShowsPagination(); 
+function applyFilters(categorie = 'All', query = '') {
+    setCurrentPage(1);
+    let filtered = [...produits];
+    if (categorie !== 'All') {
+        filtered = filtered.filter(p => p.categorie === categorie);
+    }
+    if (query) {
+        filtered = filtered.filter(p => p.nom.toLowerCase().includes(query.toLowerCase()) || p.categorie.toLowerCase().includes(query.toLowerCase()));
+    }
+    setProduitsFiltres(filtered);
+    showsPrds();
+    ShowsPagination();
     showREcommande();
-    numberLenghOfProducts()
-    darkMode()
+
+
+
+    const url = new URL(window.location);
+    if (categorie !== 'All') url.searchParams.set('category', categorie);
+    else url.searchParams.delete('category');
+    if (query) url.searchParams.set('search', query);
+    else url.searchParams.delete('search');
+    window.history.pushState({}, '', url);
+}
+
+function loadFiltersFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const categorie = urlParams.get('category') || 'All';
+    const query = urlParams.get('search') || '';
+    applyFilters(categorie, query);
+}
+
+window.searchProducts = () => {
+    const query = document.querySelector('input[placeholder*="Search"]').value.toLowerCase();
+    const currentCategory = new URLSearchParams(window.location.search).get('category') || 'All';
+    applyFilters(currentCategory, query);
+};
+
+
+window.addEventListener('popstate', () => {
+    loadFiltersFromURL();
 });

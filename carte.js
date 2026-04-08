@@ -7,6 +7,32 @@ window.addEventListener('DOMContentLoaded', () => {
     if (!productId) return
     if (pdc) {
         document.title = `${pdc.nom} | DSK Shop`;
+        document.getElementById('page-title').textContent = `${pdc.nom} | DSK Shop`;
+        document.getElementById('meta-description').content = `Découvrez ${pdc.nom} sur DSK Shop. ${pdc.description || 'Produit de qualité en mode et lifestyle.'}`;
+        document.getElementById('og-title').content = `${pdc.nom} | DSK Shop`;
+        document.getElementById('og-description').content = `Découvrez ${pdc.nom} sur DSK Shop. ${pdc.description || 'Produit de qualité.'}`;
+        document.getElementById('og-image').content = pdc.image;
+        document.querySelector('meta[property="og:url"]').content = `${window.location.origin}${window.location.pathname}?id=${pdc.id}`;
+        
+        // Structured Data
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": pdc.nom,
+            "image": pdc.image,
+            "description": pdc.description || "Produit de qualité.",
+            "offers": {
+                "@type": "Offer",
+                "price": pdc.prix,
+                "priceCurrency": "XOF",
+                "availability": "https://schema.org/InStock"
+            }
+        };
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(structuredData);
+        document.head.appendChild(script);
+        
         document.getElementById('product-name').textContent = pdc.nom;
         document.getElementById('product-price').textContent = `${pdc.prix.toFixed(2)} FCFA.`;
         document.getElementById('product-cat').textContent = pdc.categorie;
