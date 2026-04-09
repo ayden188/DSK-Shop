@@ -1,6 +1,6 @@
 export const produits = [
     { id: 1, nom: "Phone Holder Sakti", categorie: "Other", prix: 2990, image: "https://images.unsplash.com/photo-1586105251261-72a756497a11?q=80&w=500", rating: 9.0, },
-    { id: 2, nom: "Headsound Elite", categorie: "Music", prix: 1200, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=500", rating: 4.8 },
+    { id: 2, nom: "Headsound Elite", categorie: "Music", prix: 1200, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=500", rating: 10 ,description:"Découvrez le nouveau <strong>Headsound Elite</strong>. Un design minimaliste pour une performance audio exceptionnelle. Son immersif, confort absolu, jusqu'à 30h d'autonomie." },
     {
         id: 3,
         nom: "Apex Gaming Mouse",

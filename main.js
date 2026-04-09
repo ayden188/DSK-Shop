@@ -1,6 +1,6 @@
 // main.js   
 import { produits } from './data.js';
-import { showsPrds, ShowsPagination, showREcommande,darkMode ,move,changerPage, numberLenghOfProducts,InitCarroussel,initCategoryMenu} from './ui.js';
+import { showsPrds, ShowsPagination, showREcommande,darkMode ,move,changerPage, numberLenghOfProducts,InitCarroussel,initCategoryMenu,showAutoHero} from './ui.js';
 import {  setCurrentPage, setProduitsFiltres ,panier,ajouterAuPanier, actualiserVisuelPanier,} from './carte.js';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
     showREcommande();
     numberLenghOfProducts()
     initCategoryMenu()
+    showAutoHero()
 });
 
 

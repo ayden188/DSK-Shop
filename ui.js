@@ -163,6 +163,63 @@ export function showREcommande() {
     if (window.lucide) lucide.createIcons();
 }
 
+export function showAutoHero() {
+    const heroCointainer = document.getElementById('hero-section-container')
+    if (!heroCointainer) return
+    const bestProduct = [...produitsFiltres].sort((a, b) => b.rating - a.rating)[0]
+    if (!bestProduct) {
+        console.log('eli')
+        return;
+    }
+    heroCointainer.innerHTML = `
+        <section class="w-full bg-[#f8f8f8] py-20 px-4 md:px-8">
+            <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 lg:gap-20">
+                
+                <div class="w-full md:w-1/2 rounded-2xl overflow-hidden relative group bg-white p-4">
+                    <img src="${bestProduct.image}" alt="${bestProduct.nom}"
+                        class="w-full h-[400px] md:h-[550px] object-contain rounded-2xl transition-transform duration-700 group-hover:scale-105">
+                    
+                    <div class="absolute bottom-10 right-10 bg-white/80 backdrop-blur-md px-6 py-3 rounded-2xl shadow-xl border border-white/50 flex flex-col items-end">
+                        <span class="text-[10px] font-black uppercase text-gray-400 tracking-widest">${bestProduct.categorie}</span>
+                        <span class="text-2xl font-extrabold text-slate-950">${bestProduct.prix.toLocaleString('fr-FR')} FCFA</span>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
+                    <span class="text-xs font-bold tracking-[0.5em] uppercase text-indigo-600">Featured Masterpiece</span>
+
+                    <h2 class="text-5xl md:text-7xl font-black text-slate-950 uppercase tracking-tighter leading-[0.9]">
+                        ${bestProduct.nom.split(' ')[0]} <br>
+                        <span class="text-gray-300">${bestProduct.nom.split(' ').slice(1).join(' ')}</span>
+                    </h2>
+
+                    <p class="max-w-md text-gray-600 leading-relaxed font-medium">
+                       
+                        ${bestProduct.description}
+                        Un produit noté  ${bestProduct.rating}/10 par notre communauté à Lomé.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
+                        <button onclick="handleAchat('${bestProduct.id}')"
+                            class="w-full sm:w-auto bg-slate-950 text-white px-10 py-4 rounded-2xl font-bold text-sm shadow-xl active:scale-95 transition-all hover:bg-indigo-600 flex items-center justify-center gap-2 group">
+                            Acheter maintenant
+                            <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                        </button>
+                        <a href="shop.html?category=All"
+class="w-full sm:w-auto text-slate-950 px-10 py-4 rounded-2xl font-bold text-sm transition-all hover:bg-slate-100 flex items-center justify-center gap-2">
+Voir toute la gamme Audio
+</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    `;
+
+    if (window.lucide) lucide.createIcons();
+
+
+}
+
 
 export function darkMode() {
     const turnMode = document.querySelector("#Turn-mode")
@@ -196,7 +253,7 @@ export function darkMode() {
 
 
 
-let CurrentIndex = 0; 
+let CurrentIndex = 0;
 
 function updateDots() {
     const dots = document.querySelectorAll('.dot');
@@ -213,7 +270,7 @@ function updateDots() {
 
 // 2. Initialisation du Carrousel
 export function InitCarroussel() {
-    const proCarrousser = produits.slice(0, 4); 
+    const proCarrousser = produits.slice(0, 4);
     const container = document.getElementById('carousel-slide');
     if (!container) return;
 
@@ -236,7 +293,7 @@ export function InitCarroussel() {
     const nav = document.createElement('div');
     nav.id = "dots-container";
     nav.className = "absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3 z-48";
-    
+
     nav.innerHTML = proCarrousser.map((_, i) => `
         <div onclick="goToSlide(${i})" class="dot cursor-pointer p-1"></div>
     `).join('');
@@ -264,7 +321,7 @@ export function moveCarousel(direction) {
 export function goToSlide(index) {
     const container = document.getElementById('carousel-slide');
     if (!container) return;
-    
+
     CurrentIndex = index;
     container.style.transform = `translateX(-${CurrentIndex * 100}%)`;
     updateDots();
@@ -284,8 +341,8 @@ export function initCategoryMenu() {
     if (!btn || !menu) return;
 
     btn.onclick = (e) => {
-        e.stopPropagation(); 
-    
+        e.stopPropagation();
+
         const isOpen = !menu.classList.contains('opacity-0');
 
         if (isOpen) {
@@ -311,7 +368,7 @@ export function initCategoryMenu() {
 
 window.selectCat = (cat) => {
     console.log("Filtrage par :", cat);
-    filtrerParCategorie(cat); 
+    filtrerParCategorie(cat);
     const menu = document.querySelector('#category-menu');
     if (menu) {
         menu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
