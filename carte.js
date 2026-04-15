@@ -14,7 +14,6 @@ window.addEventListener('DOMContentLoaded', () => {
         document.getElementById('og-image').content = pdc.image;
         document.querySelector('meta[property="og:url"]').content = `${window.location.origin}${window.location.pathname}?id=${pdc.id}`;
         
-        // Structured Data
         const structuredData = {
             "@context": "https://schema.org",
             "@type": "Product",
@@ -67,7 +66,11 @@ export function showToast() {
         toast.classList.add('translate-x-[150%]');
     }, 3000);
 }
-export let panier = [];
+
+
+export let panier = JSON.parse(localStorage.getItem('panier')) || [];
+
+  
 
 
 export function ajouterAuPanier(produitId, delta = 1) {
@@ -89,6 +92,8 @@ export function ajouterAuPanier(produitId, delta = 1) {
             showToast()
         }
     }
+
+    localStorage.setItem('panier',JSON.stringify(panier))
     actualiserVisuelPanier()
 }
 

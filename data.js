@@ -55,7 +55,7 @@ export const produits = [
     },
     {
         id: 9,
-        nom: "Titan Noise-Canceling Headphones",
+        nom: "Titan Headphones",
         categorie: "Audio",
         prix: 65000,
         image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=500",

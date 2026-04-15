@@ -50,7 +50,7 @@ window.fermerPanier = () => {
     }
 };
 
-export const ItemsPerPage = 9;
+export const ItemsPerPage = 12;
 window.move=move
 window.changerPage = changerPage;
 window.filtrerParCategorie = function(nomCategorie) {

@@ -16,41 +16,59 @@ export function showsPrds() {
     const fin = debut + ItemsPerPage
     const produitDelaPAGE = produitsFiltres.slice(debut, fin)
     if (!grille) return;
-    grille.innerHTML = produitDelaPAGE.map(produit => `
-      <div class="bg-gray-100 p-2 sm:p-4 rounded-2xl sm:rounded-3xl border border-gray-100 cursor-pointer transition-all group w-full flex flex-col justify-between">
-    
-    <div class="bg-gray-200 rounded-xl sm:rounded-2xl aspect-square flex items-center justify-center overflow-hidden mb-3 relative">
+ grille.innerHTML = produitDelaPAGE.map(produit => `
+  <div class="group bg-white p-3 sm:p-4 rounded-2xl sm:rounded-3xl border border-gray-200 
+              transition-all duration-300 flex flex-col justify-between relative overflow-hidden h-full">
+
+    <div class="relative bg-gray-100 rounded-xl sm:rounded-2xl aspect-square overflow-hidden mb-3 flex-shrink-0">
         <a href="product.html?id=${produit.id}" class="block h-full w-full">
-            <img src="${produit.image}" alt="${produit.nom}" class="object-cover h-full w-full group-hover:scale-110 transition-transform duration-500">
+            <img src="${produit.image}" 
+                 alt="${produit.nom}" 
+                 title="voir les details" 
+                 class="object-cover h-full w-full group-hover:scale-110 transition-transform duration-500">
         </a>
-        <span class="absolute top-1 right-1 sm:top-2 sm:right-2 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded-md text-[9px] sm:text-[10px] font-bold shadow-sm">
-            ⭐ ${produit.rating} 
+
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition pointer-events-none"></div>
+
+        <span class="absolute top-1 right-1 sm:top-2 sm:right-2 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md text-[9px] sm:text-[10px] font-bold shadow-sm">
+            ⭐ ${produit.rating}
         </span>
     </div>
 
-    <div class="space-y-1 ">
-        <span class="text-[8px] sm:text-[10px] uppercase font-bold text-gray-400 tracking-tighter sm:tracking-widest block">${produit.categorie}</span>
-        
-        <a href="product.html?id=${produit.id}">
-            <h3 class="font-title font-bold text-xs sm:text-base leading-tight hover:text-[#caa52b] line-clamp-2">
+    <div class="flex flex-col flex-grow min-w-0"> <span class="text-[8px] sm:text-[10px] uppercase font-bold text-gray-400 tracking-tighter sm:tracking-widest block mb-1">
+          ${produit.categorie}
+        </span>
+
+        <a href="product.html?id=${produit.id}" class="block ">
+            <h3 class="font-bold text-xs sm:text-base leading-tight hover:text-[#caa52b] transition line-clamp-2 min-h-[2.5em]">
                 ${produit.nom}
             </h3>
-        </a>                    
- <div class="flex justify-between items-center mt-auto pt-4 gap-2">
-    <div class="flex flex-col">
-        <span class="font-bold text-[15px] sm:text-xl  text-[#080808] whitespace-nowrap leading-none">
-            ${produit.prix.toLocaleString('fr-FR')}  <span class="text-[10px] sm:text-xs ml-0.5">FCFA</span>
-        </span>
+        </a>
+
+        <div class="flex flex-wrap items-center gap-1 sm:gap-2 mt-auto">
+            <span class="font-bold text-xs text-black whitespace-nowrap">
+                ${produit.prix.toLocaleString('fr-FR')} FCFA
+            </span>
+            <span class="text-[9px] sm:text-xs line-through text-gray-400">
+                ${(produit.prix * 1.3).toLocaleString('fr-FR')}
+            </span>
+        </div>
+
+        <button onclick="handleAchat('${produit.id}')" 
+          class="mt-3 w-full bg-black text-white py-2 sm:py-2.5 rounded-xl 
+                 flex items-center justify-center gap-2 
+                 hover:bg-[#caa52b] active:scale-95 transition-all">
+          
+          <i data-lucide="shopping-cart" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+          <span class="text-[11px] sm:text-sm font-semibold uppercase tracking-tight">Ajouter</span>
+        </button>
     </div>
-    
-    <button onclick="handleAchat('${produit.id}')" 
-            class="flex-shrink-0 bg-[#080808] text-white p-2.5 rounded-xl hover:bg-[#caa52b] active:scale-90 transition-all shadow-sm">
-        <i data-lucide="shopping-cart" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-    </button>
-</div>
-    </div>
-</div>
-        `).join('');
+
+  </div>
+`).join('');
+
+
+
     if (produitsFiltres.length === 0) {
         grille.innerHTML = `
                 <div class="col-span-full flex flex-col items-center justify-center py-20 text-center">
@@ -141,7 +159,7 @@ export function showREcommande() {
     rail.innerHTML = topProducts.map(produit => `
      <div class="bg-dsk-card p-4 rounded-3xl border  min-w-[380px] border-gray-100 cursor-pointer transition-all group" >
             <div class="bg-gray-100 rounded-2xl h-48 flex items-center justify-center overflow-hidden mb-4 relative">
-                <img src="${produit.image}" title="voir les details" alt="${produit.nom}" class="group-hover:scale-110 transition-transform duration-500 object-cover h-full w-full">
+             <img src="${produit.image}" title="voir les details" alt="${produit.nom}" class="group-hover:scale-110 transition-transform duration-500 object-cover h-full w-full"> 
                 <span class="absolute top-2 right-2 bg-dsk-card backdrop-blur-sm px-2 py-1 rounded-lg text-[10px] font-bold">
                     ${produit.categorie} 
                 </span>
